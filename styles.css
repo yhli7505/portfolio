@@ -1,4 +1,4 @@
-﻿:root {
+:root {
   --bg: #070707;
   --surface: #101010;
   --surface-soft: #171717;
@@ -853,6 +853,18 @@ img {
   }
 }
 
+@media (max-width: 768px) and (orientation: portrait) {
+  .hero::before {
+    background-position: 40% 8%;
+  }
+
+  .hero-overlay {
+    background:
+      linear-gradient(90deg, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.36) 60%, rgba(0, 0, 0, 0.7) 100%),
+      linear-gradient(180deg, rgba(0, 0, 0, 0.28), rgba(0, 0, 0, 0.68));
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -863,6 +875,8 @@ img {
     scroll-behavior: auto !important;
   }
 }
+
+
 
 
 
