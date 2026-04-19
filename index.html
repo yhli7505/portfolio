@@ -1,7 +1,7 @@
 ﻿<!doctype html>
 <html lang="zh-CN">
   <head>
-    <base href="https://yhli7505.github.io/portfolio/" />
+    <!-- <base href="./" /> -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>李语涵 | 产品经理个人展示</title>
@@ -65,12 +65,12 @@
     </script>
   </head>
   <body>
-    <a class="skip-link" href="#about">跳转到主要内容</a>
+    <a class="skip-link" href="#about" data-i18n="skip.link">跳转到主要内容</a>
     <header class="site-header" id="top">
       <div class="container nav-wrap">
-        <a class="brand" href="#home" aria-label="回到首页">
-          <span class="brand-cn">李语涵</span>
-          <span class="brand-en">Product Manager</span>
+        <a class="brand" href="#home" aria-label="回到首页" data-i18n-aria-label="brand.ariaLabel">
+          <span class="brand-cn" data-i18n="brand.name">李语涵</span>
+          <span class="brand-en" data-i18n="brand.role">Product Manager</span>
         </a>
         <button
           class="menu-toggle"
@@ -78,17 +78,53 @@
           aria-label="打开菜单"
           aria-controls="site-nav"
           aria-expanded="false"
+          data-i18n-aria-label="menu.open"
         >
           <span></span><span></span><span></span>
         </button>
-        <nav id="site-nav" class="site-nav" aria-label="主导航">
-          <a href="#home" class="nav-link is-active">Home</a>
-          <a href="#about" class="nav-link">About Me</a>
-          <a href="#experience" class="nav-link">Experience</a>
-          <a href="#highlights" class="nav-link">Highlights</a>
-          <a href="#skills" class="nav-link">Skills</a>
-          <a href="#contact" class="nav-link">Contact</a>
+        <nav id="site-nav" class="site-nav" aria-label="主导航" data-i18n-aria-label="nav.ariaLabel">
+          <a href="#home" class="nav-link is-active" data-i18n="nav.home">Home</a>
+          <a href="#about" class="nav-link" data-i18n="nav.about">About Me</a>
+          <a href="#experience" class="nav-link" data-i18n="nav.experience">Experience</a>
+          <a href="#highlights" class="nav-link" data-i18n="nav.highlights">Highlights</a>
+          <a href="#skills" class="nav-link" data-i18n="nav.skills">Skills</a>
+          <a href="#contact" class="nav-link" data-i18n="nav.contact">Contact</a>
         </nav>
+        <button
+          class="lang-toggle"
+          type="button"
+          aria-label="Switch to English"
+          aria-pressed="false"
+          title="切换中英文"
+        >
+          <span class="lang-toggle-text">中 / EN</span>
+        </button>
+        <button
+          class="theme-toggle"
+          type="button"
+          aria-label="切换到亮色模式"
+          aria-pressed="false"
+          title="切换明暗主题"
+        >
+          <span class="theme-toggle-icon theme-toggle-sun" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="4.2"></circle>
+              <path d="M12 1.8v2.5"></path>
+              <path d="M12 19.7v2.5"></path>
+              <path d="M4.2 4.2 6 6"></path>
+              <path d="M18 18 19.8 19.8"></path>
+              <path d="M1.8 12h2.5"></path>
+              <path d="M19.7 12h2.5"></path>
+              <path d="M4.2 19.8 6 18"></path>
+              <path d="M18 6 19.8 4.2"></path>
+            </svg>
+          </span>
+          <span class="theme-toggle-icon theme-toggle-moon" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <path d="M20.2 14.1A8.8 8.8 0 1 1 9.9 3.8a7.2 7.2 0 1 0 10.3 10.3Z"></path>
+            </svg>
+          </span>
+        </button>
       </div>
     </header>
 
@@ -97,36 +133,36 @@
         <div class="hero-overlay"></div>
         <div class="container hero-inner">
           <div class="hero-left reveal">
-            <p class="eyebrow">AI PRODUCT MANAGER</p>
-            <h1><span class="type-target" id="hero-name" data-type-text="李语涵">李语涵</span></h1>
-            <p class="hero-subtitle"><span class="type-target" id="hero-slogan" data-type-text="用产品逻辑连接用户价值与业务增长">用产品逻辑连接用户价值与业务增长</span></p>
+            <p class="eyebrow" data-i18n="hero.eyebrow">AI PRODUCT MANAGER</p>
+            <h1><span class="type-target" id="hero-name" data-type-text="李语涵" data-i18n-data-type-text="hero.name">李语涵</span></h1>
+            <p class="hero-subtitle"><span class="type-target" id="hero-slogan" data-type-text="用产品逻辑连接用户价值与业务增长" data-i18n-data-type-text="hero.slogan">用产品逻辑连接用户价值与业务增长</span></p>
             <div class="hero-cta">
-              <a href="#experience" class="btn btn-primary">查看项目经历</a>
-              <a href="#contact" class="btn btn-ghost">联系我</a>
+              <a href="#experience" class="btn btn-primary" data-i18n="hero.ctaPrimary">查看项目经历</a>
+              <a href="#contact" class="btn btn-ghost" data-i18n="hero.ctaSecondary">联系我</a>
             </div>
           </div>
           <div class="hero-right reveal">
-            <p class="hero-quote">
+            <p class="hero-quote" data-i18n-html="hero.quote">
               从 0 到 1 搭建产品，<br />
               用数据驱动持续迭代。
             </p>
             <div class="hero-kpis">
               <div class="hero-kpi">
-                <span>资源包购买转化</span>
+                <span data-i18n="hero.kpi1Label">资源包购买转化</span>
                 <strong>3% → 5.2%</strong>
               </div>
               <div class="hero-kpi">
-                <span>国际业务日活用户</span>
+                <span data-i18n="hero.kpi2Label">国际业务日活用户</span>
                 <strong>10,000+</strong>
               </div>
               <div class="hero-kpi">
-                <span>工单处理效率</span>
-                <strong>+30%</strong>
+                <span data-i18n="hero.kpi3Label">平台月注册量</span>
+                <strong>+35%</strong>
               </div>
             </div>
           </div>
         </div>
-        <a href="#about" class="scroll-tip" aria-label="向下滚动">
+        <a href="#about" class="scroll-tip" aria-label="向下滚动" data-i18n-aria-label="hero.scroll">
           <span></span>
         </a>
       </section>
@@ -134,9 +170,9 @@
       <section id="about" class="section section-anchor">
         <div class="container">
           <div class="section-heading reveal">
-            <p class="section-tag">About Me</p>
-            <h2>关于我</h2>
-            <p>
+            <p class="section-tag" data-i18n="about.tag">About Me</p>
+            <h2 data-i18n="about.title">关于我</h2>
+            <p data-i18n="about.summary">
               北京交通大学硕士在读，聚焦 AI 与平台型产品方向。擅长以用户洞察定义需求，
               以指标体系验证效果，在跨团队协同中推动方案从策略到落地。
             </p>
@@ -144,29 +180,49 @@
 
           <div class="about-grid">
             <article class="card reveal">
-              <h3>教育背景</h3>
+              <h3 data-i18n="about.education.title">教育背景</h3>
               <ul class="clean-list">
-                <li>北京交通大学 信息与通信工程 硕士<br />（2024.09 - 2027.06）</li>
-                <li>北京交通大学 通信工程 本科<br />（2020.09 - 2024.06）</li>
+                <li data-i18n-html="about.education.item1">北京交通大学 信息与通信工程 硕士<br />（2024.09 - 2027.06）</li>
+                <li data-i18n-html="about.education.item2">北京交通大学 通信工程 本科<br />（2020.09 - 2024.06）</li>
               </ul>
             </article>
             <article class="card reveal">
-              <h3>产品优势</h3>
+              <h3 data-i18n="about.strengths.title">产品优势</h3>
               <ul class="clean-list">
-                <li>产品规划：可独立完成从定位、竞品分析到PRD输出</li>
-                <li>数据驱动：围绕转化、活跃、效率构建指标闭环</li>
-                <li>协作推动：兼顾研发、算法、运营与业务目标对齐</li>
+                <li data-i18n="about.strengths.item1">产品规划：可独立完成从定位、竞品分析到PRD输出</li>
+                <li data-i18n="about.strengths.item2">数据驱动：围绕转化、活跃、效率构建指标闭环</li>
+                <li data-i18n="about.strengths.item3">协作推动：兼顾研发、算法、运营与业务目标对齐</li>
               </ul>
             </article>
             <article class="card reveal">
-              <h3>荣誉与竞赛</h3>
+              <h3 data-i18n="about.honors.title">荣誉与竞赛</h3>
               <ul class="clean-list">
-                <li>国家奖学金 / “钟茂钧”专项奖学金</li>
-                <li>“挑战杯”一等奖 / “互联网+”二等奖</li>
-                <li>第九届网络技术挑战赛全国一等奖</li>
-                <li>三好学生 / 优秀团员</li>
+                <li data-i18n="about.honors.item1">国家奖学金 / “钟茂钧”专项奖学金</li>
+                <li data-i18n="about.honors.item2">“挑战杯”一等奖 / “互联网+”二等奖</li>
+                <li data-i18n="about.honors.item3">第九届网络技术挑战赛全国一等奖</li>
+                <li data-i18n="about.honors.item4">三好学生 / 优秀团员</li>
               </ul>
             </article>
+          </div>
+
+          <div class="honors-carousel card reveal" data-honors-carousel>
+            <div class="honors-heading">
+              <h3 data-i18n="honors.heading">荣誉影像</h3>
+              <p data-i18n="honors.description">点击左右按钮切换，点击当前主卡可放大查看。</p>
+            </div>
+            <div class="honors-stage" tabindex="0" aria-label="荣誉轮播，支持左右方向键切换" data-i18n-aria-label="honors.stage">
+              <button class="honors-nav honors-nav-prev" type="button" aria-label="查看上一张" data-honors-prev data-i18n-aria-label="honors.prev">
+                <span aria-hidden="true">‹</span>
+              </button>
+              <div class="honors-track" data-honors-track></div>
+              <button class="honors-nav honors-nav-next" type="button" aria-label="查看下一张" data-honors-next data-i18n-aria-label="honors.next">
+                <span aria-hidden="true">›</span>
+              </button>
+            </div>
+            <div class="honors-meta">
+              <p class="honors-title" data-honors-title></p>
+              <span class="honors-index" data-honors-index></span>
+            </div>
           </div>
         </div>
       </section>
@@ -174,22 +230,52 @@
       <section id="experience" class="section section-anchor">
         <div class="container">
           <div class="section-heading reveal">
-            <p class="section-tag">Experience</p>
-            <h2>实习经历</h2>
-            <p>以结果为导向的产品实践，从策略设计到上线验证均有完整经验。</p>
+            <p class="section-tag" data-i18n="experience.tag">Experience</p>
+            <h2 data-i18n="experience.title">实习经历</h2>
+            <p data-i18n="experience.summary">以结果为导向的产品实践，从策略设计到上线验证均有完整经验。</p>
           </div>
 
           <div class="timeline">
             <article class="timeline-item reveal">
               <div class="timeline-head">
                 <h3>
-                  北京智谱华章科技股份有限公司
+                  <span data-i18n="experience.kimi.company">北京月之暗面科技有限公司</span>
+                  <a
+                    class="company-link"
+                    href="https://platform.kimi.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="访问 Kimi 开放平台官网"
+                    data-i18n-aria-label="experience.kimi.link"
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path d="M14 4h6v6"></path>
+                      <path d="M10 14 20 4"></path>
+                      <path d="M20 14v6h-16v-16h6"></path>
+                    </svg>
+                  </a>
+                </h3>
+                <p data-i18n="experience.kimi.meta">API Team | 产品实习生 | 2026.01 - 2026.04</p>
+              </div>
+              <ul class="clean-list">
+                <li data-i18n="experience.kimi.item1">参与 Kimi 企业版产品设计，规划“数据不进训练、后端标识隔离”的核心合规逻辑，串联企业认证、批量下单、坐席分配及成员管理闭环。</li>
+                <li data-i18n="experience.kimi.item2">搭建 Kimi 开放平台充值、账单、支付状态等核心模块埋点体系，定义关键事件并构建转化漏斗，定位支付前后流失节点并推动体验优化。</li>
+                <li data-i18n="experience.kimi.item3">完成主流竞品商业化模式调研，分别设计 B 端渠道追踪与返点结算体系、C 端双向代金券裂变规则，推动平台月注册量环比增长约 35%。</li>
+                <li data-i18n="experience.kimi.item4">通过 Dify 搭建 AI 客服 bot，完成 LLM、知识检索和问题分类模块配置，减少人工转接频次并提升客服自动化能力。</li>
+              </ul>
+            </article>
+
+            <article class="timeline-item reveal">
+              <div class="timeline-head">
+                <h3>
+                  <span data-i18n="experience.zhipu.company">北京智谱华章科技股份有限公司</span>
                   <a
                     class="company-link"
                     href="https://bigmodel.cn"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="访问北京智谱华章科技股份有限公司官网"
+                    data-i18n-aria-label="experience.zhipu.link"
                   >
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M14 4h6v6"></path>
@@ -198,27 +284,28 @@
                     </svg>
                   </a>
                 </h3>
-                <p>MaaS 平台部 | 产品实习生 | 2025.06 - 2025.10</p>
+                <p data-i18n="experience.zhipu.meta">MaaS 平台部 | 产品实习生 | 2025.06 - 2025.10</p>
               </div>
               <ul class="clean-list">
-                <li>参与 MCP 生态平台从 0 到 1 建设，明确“一站式调用、端内闭环”定位并推动规划排期。</li>
-                <li>主导 BigModel 多核心板块改版，推动资源包转化率从 3% 提升至 5.2%。</li>
-                <li>参与双品牌国际业务策略落地，支撑 Z.ai API 平台日活跃用户增长至 1w+。</li>
-                <li>主导跨平台合作引流，推动来自 Cherry Studio 的模型日 token 消耗约 3.5 亿。</li>
-                <li>制定知识库召回评测规则并实现人评机评皮尔逊相关系数 0.899。</li>
+                <li data-i18n="experience.zhipu.item1">参与 MCP 生态平台从 0 到 1 建设，明确“一站式调用、端内闭环”定位并推动规划排期。</li>
+                <li data-i18n="experience.zhipu.item2">主导 BigModel 多核心板块改版，推动资源包转化率从 3% 提升至 5.2%。</li>
+                <li data-i18n="experience.zhipu.item3">参与双品牌国际业务策略落地，支撑 Z.ai API 平台日活跃用户增长至 1w+。</li>
+                <li data-i18n="experience.zhipu.item4">主导跨平台合作引流，推动来自 Cherry Studio 的模型日 token 消耗约 3.5 亿。</li>
+                <li data-i18n="experience.zhipu.item5">制定知识库召回评测规则并实现人评机评皮尔逊相关系数 0.899。</li>
               </ul>
             </article>
 
             <article class="timeline-item reveal">
               <div class="timeline-head">
                 <h3>
-                  百度时代网络技术（北京）有限公司
+                  <span data-i18n="experience.baidu.company">百度时代网络技术（北京）有限公司</span>
                   <a
                     class="company-link"
                     href="https://cloud.baidu.com/product-s/qianfan_home"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="访问百度千帆平台官网"
+                    data-i18n-aria-label="experience.baidu.link"
                   >
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M14 4h6v6"></path>
@@ -227,26 +314,27 @@
                     </svg>
                   </a>
                 </h3>
-                <p>AI 业务质量效能组 | 测试开发实习生 | 2024.09 - 2024.12</p>
+                <p data-i18n="experience.baidu.meta">AI 业务质量效能组 | 测试开发实习生 | 2024.09 - 2024.12</p>
               </div>
               <ul class="clean-list">
-                <li>主导文心一言质量保障，设计防御性与性能指标体系并参与需求评审。</li>
-                <li>建立头部 AI 产品功能对比矩阵，提炼多轮对话与复杂推理优化建议。</li>
-                <li>重构 Markdown 检测与错误率逻辑，使检测准确率提升 20%。</li>
-                <li>协同算法与运营团队优化版本管理和用例策略，推动四则运算准确率提升 18%。</li>
+                <li data-i18n="experience.baidu.item1">主导文心一言质量保障，设计防御性与性能指标体系并参与需求评审。</li>
+                <li data-i18n="experience.baidu.item2">建立头部 AI 产品功能对比矩阵，提炼多轮对话与复杂推理优化建议。</li>
+                <li data-i18n="experience.baidu.item3">重构 Markdown 检测与错误率逻辑，使检测准确率提升 20%。</li>
+                <li data-i18n="experience.baidu.item4">协同算法与运营团队优化版本管理和用例策略，推动四则运算准确率提升 18%。</li>
               </ul>
             </article>
 
             <article class="timeline-item reveal">
               <div class="timeline-head">
                 <h3>
-                  北京汽车股份有限公司
+                  <span data-i18n="experience.baic.company">北京汽车股份有限公司</span>
                   <a
                     class="company-link"
                     href="https://www.baicgroup.com.cn"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="访问北京汽车股份有限公司官网"
+                    data-i18n-aria-label="experience.baic.link"
                   >
                     <svg viewBox="0 0 24 24" aria-hidden="true">
                       <path d="M14 4h6v6"></path>
@@ -255,12 +343,12 @@
                     </svg>
                   </a>
                 </h3>
-                <p>信息技术部 | 产品项目管理实习生 | 2024.07 - 2024.09</p>
+                <p data-i18n="experience.baic.meta">信息技术部 | 产品项目管理实习生 | 2024.07 - 2024.09</p>
               </div>
               <ul class="clean-list">
-                <li>主导工单系统优化需求分析，输出多方案对比并落地“服务台+多维表格”。</li>
-                <li>独立完成工单系统 0 到 1 搭建，推动试点上线后满意度达到 95%。</li>
-                <li>构建自动化数据看板与可视化指标体系，推动工单处理效率提升 30%。</li>
+                <li data-i18n="experience.baic.item1">主导工单系统优化需求分析，输出多方案对比并落地“服务台+多维表格”。</li>
+                <li data-i18n="experience.baic.item2">独立完成工单系统 0 到 1 搭建，推动试点上线后满意度达到 95%。</li>
+                <li data-i18n="experience.baic.item3">构建自动化数据看板与可视化指标体系，推动工单处理效率提升 30%。</li>
               </ul>
             </article>
           </div>
@@ -270,60 +358,60 @@
       <section id="highlights" class="section section-anchor">
         <div class="container">
           <div class="section-heading reveal">
-            <p class="section-tag">Highlights</p>
-            <h2>成果数据与案例亮点</h2>
-            <p>通过关键指标可视化，直观展示产品决策带来的业务价值。</p>
+            <p class="section-tag" data-i18n="highlights.tag">Highlights</p>
+            <h2 data-i18n="highlights.title">成果数据与案例亮点</h2>
+            <p data-i18n="highlights.summary">通过关键指标可视化，直观展示产品决策带来的业务价值。</p>
           </div>
 
           <div class="metrics-grid">
             <article class="metric-card reveal">
-              <p>资源包购买转化率</p>
+              <p data-i18n="highlights.metric1.label">资源包购买转化率</p>
               <h3 data-counter="5.2" data-decimals="1" data-suffix="%">0%</h3>
-              <span>从 3.0% 提升至 5.2%</span>
+              <span data-i18n="highlights.metric1.note">从 3.0% 提升至 5.2%</span>
             </article>
             <article class="metric-card reveal">
-              <p>控制台点击 PV</p>
+              <p data-i18n="highlights.metric2.label">控制台点击 PV</p>
               <h3 data-counter="15" data-suffix="%">0%</h3>
-              <span>改版后提升 15%</span>
+              <span data-i18n="highlights.metric2.note">改版后提升 15%</span>
             </article>
             <article class="metric-card reveal">
-              <p>国际平台日活用户</p>
+              <p data-i18n="highlights.metric3.label">国际平台日活用户</p>
               <h3 data-counter="10000" data-suffix="+">0</h3>
-              <span>9 月底突破万级</span>
+              <span data-i18n="highlights.metric3.note">9 月底突破万级</span>
             </article>
             <article class="metric-card reveal">
-              <p>工单处理效率</p>
-              <h3 data-counter="30" data-suffix="%">0%</h3>
-              <span>系统优化后提升 30%</span>
+              <p data-i18n="highlights.metric4.label">平台月注册量增长</p>
+              <h3 data-counter="35" data-suffix="%">0%</h3>
+              <span data-i18n="highlights.metric4.note">裂变活动后环比增长 35%</span>
             </article>
           </div>
 
           <div class="chart-card reveal">
-            <h3>核心能力雷达（能力成熟度）</h3>
-            <p class="chart-note">基于实习项目产出与指标结果的综合评估（满分 100）</p>
-            <div class="bar-chart" role="img" aria-label="产品能力评估条形图">
+            <h3 data-i18n="highlights.chart.title">核心能力雷达（能力成熟度）</h3>
+            <p class="chart-note" data-i18n="highlights.chart.note">基于实习项目产出与指标结果的综合评估（满分 100）</p>
+            <div class="bar-chart" role="img" aria-label="产品能力评估条形图" data-i18n-aria-label="highlights.chart.ariaLabel">
               <div class="bar-row">
-                <span>需求洞察</span>
+                <span data-i18n="highlights.chart.item1">需求洞察</span>
                 <div class="bar-track"><i style="--value: 88%"></i></div>
                 <strong>88</strong>
               </div>
               <div class="bar-row">
-                <span>产品规划</span>
+                <span data-i18n="highlights.chart.item2">产品规划</span>
                 <div class="bar-track"><i style="--value: 91%"></i></div>
                 <strong>91</strong>
               </div>
               <div class="bar-row">
-                <span>数据分析</span>
+                <span data-i18n="highlights.chart.item3">数据分析</span>
                 <div class="bar-track"><i style="--value: 86%"></i></div>
                 <strong>86</strong>
               </div>
               <div class="bar-row">
-                <span>跨团队协同</span>
+                <span data-i18n="highlights.chart.item4">跨团队协同</span>
                 <div class="bar-track"><i style="--value: 92%"></i></div>
                 <strong>92</strong>
               </div>
               <div class="bar-row">
-                <span>落地推进</span>
+                <span data-i18n="highlights.chart.item5">落地推进</span>
                 <div class="bar-track"><i style="--value: 90%"></i></div>
                 <strong>90</strong>
               </div>
@@ -335,33 +423,33 @@
       <section id="skills" class="section section-anchor">
         <div class="container">
           <div class="section-heading reveal">
-            <p class="section-tag">Skills</p>
-            <h2>专业技能</h2>
-            <p>覆盖产品设计、AI工具链、数据分析与开发协作能力。</p>
+            <p class="section-tag" data-i18n="skills.tag">Skills</p>
+            <h2 data-i18n="skills.title">专业技能</h2>
+            <p data-i18n="skills.summary">覆盖产品设计、AI工具链、数据分析与开发协作能力。</p>
           </div>
           <div class="skills-grid">
             <article class="card reveal">
-              <h3>产品与协作工具</h3>
+              <h3 data-i18n="skills.group1.title">产品与协作工具</h3>
               <div class="chips">
                 <span>Figma</span><span>Axure</span><span>Mintlify</span><span>Visio</span><span>Office</span>
               </div>
             </article>
             <article class="card reveal">
-              <h3>AI 与平台工具</h3>
+              <h3 data-i18n="skills.group2.title">AI 与平台工具</h3>
               <div class="chips">
                 <span>Dify</span><span>Coze</span><span>OpenClaw</span><span>Cherry Studio</span><span>Codex</span><span>TRAE</span><span>Cursor</span>
               </div>
             </article>
             <article class="card reveal">
-              <h3>技术与数据能力</h3>
+              <h3 data-i18n="skills.group3.title">技术与数据能力</h3>
               <div class="chips">
                 <span>Python</span><span>Java</span><span>SQL</span><span>Linux</span><span>Shell</span>
               </div>
             </article>
             <article class="card reveal">
-              <h3>证书与语言</h3>
+              <h3 data-i18n="skills.group4.title">证书与语言</h3>
               <div class="chips">
-                <span>CET-6 554</span><span>计算机二级MS</span><span>计算机三级网络技术</span><span>普通话一级乙等</span>
+                <span data-i18n="skills.group4.item1">CET-6 554</span><span data-i18n="skills.group4.item2">计算机二级MS</span><span data-i18n="skills.group4.item3">计算机三级网络技术</span><span data-i18n="skills.group4.item4">普通话一级乙等</span>
               </div>
             </article>
           </div>
@@ -372,26 +460,26 @@
         <div class="container">
           <div class="contact-panel reveal">
             <div>
-              <p class="section-tag">Contact</p>
-              <h2>联系方式</h2>
-              <p>
+              <p class="section-tag" data-i18n="contact.tag">Contact</p>
+              <h2 data-i18n="contact.title">联系方式</h2>
+              <p data-i18n="contact.summary">
                 期待产品经理、AI 产品、平台产品相关岗位机会。欢迎通过邮件或电话联系，
                 我可以进一步提供完整项目材料与作品细节。
               </p>
             </div>
             <ul class="contact-list">
-              <li><span>姓名</span><strong>李语涵</strong></li>
+              <li><span data-i18n="contact.nameLabel">姓名</span><strong data-i18n="contact.nameValue">李语涵</strong></li>
               <li>
-                <span>电话</span>
+                <span data-i18n="contact.phoneLabel">电话</span>
                 <div class="contact-value-wrap">
                   <a href="tel:15510608713">15510608713</a>
-                  <button class="copy-btn" type="button" data-copy="15510608713" aria-label="复制电话">
+                  <button class="copy-btn" type="button" data-copy="15510608713" aria-label="复制电话" data-i18n="contact.copy" data-i18n-aria-label="contact.copyPhoneAria">
                     复制
                   </button>
                 </div>
               </li>
               <li>
-                <span>邮箱</span>
+                <span data-i18n="contact.emailLabel">邮箱</span>
                 <div class="contact-value-wrap">
                   <a href="mailto:yhli7505@qq.com">yhli7505@qq.com</a>
                   <button
@@ -399,23 +487,47 @@
                     type="button"
                     data-copy="yhli7505@qq.com"
                     aria-label="复制邮箱"
+                    data-i18n="contact.copy"
+                    data-i18n-aria-label="contact.copyEmailAria"
                   >
                     复制
                   </button>
                 </div>
               </li>
-              <li><span>所在地</span><strong>北京</strong></li>
+              <li><span data-i18n="contact.locationLabel">所在地</span><strong data-i18n="contact.locationValue">北京</strong></li>
             </ul>
           </div>
         </div>
       </section>
     </main>
 
+    <div class="honor-lightbox" id="honor-lightbox" hidden>
+      <button class="honor-lightbox-backdrop" type="button" data-honor-close aria-label="关闭荣誉预览" data-i18n-aria-label="honors.closePreview"></button>
+      <figure
+        class="honor-lightbox-panel"
+        role="dialog"
+        aria-modal="true"
+        aria-label="荣誉证书预览"
+        data-i18n-aria-label="honors.dialog"
+      >
+        <button class="honor-lightbox-close" type="button" data-honor-close aria-label="关闭预览" data-i18n-aria-label="honors.close">×</button>
+        <img id="honor-lightbox-image" alt="" />
+        <figcaption id="honor-lightbox-caption"></figcaption>
+      </figure>
+    </div>
+
     <div class="copy-toast" id="copy-toast" role="status" aria-live="polite"></div>
 
-    <footer class="site-footer">
-      <div class="container">
-        <p>© <span id="year"></span> 李语涵 · Product Manager Portfolio</p>
+    <footer class="site-footer" data-music-banner>
+      <div class="site-footer-banner" aria-hidden="true">
+        <div class="site-footer-score" data-score-track>
+          <img src="assets/bass-triplet.png" alt="" />
+          <img src="assets/bass-triplet.png" alt="" />
+          <img src="assets/bass-triplet.png" alt="" />
+        </div>
+      </div>
+      <div class="container site-footer-inner">
+        <p><span data-i18n="footer.copyPrefix">©</span> <span id="year"></span> <span data-i18n="footer.copyText">李语涵 · Product Manager Portfolio</span></p>
       </div>
     </footer>
   </body>
