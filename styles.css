@@ -663,7 +663,7 @@ html[lang="en"] .hero-right {
 .honors-stage {
   position: relative;
   margin-top: 16px;
-  height: clamp(290px, 38vw, 410px);
+  height: clamp(290px, 38vw, 380px);
   overflow: hidden;
   border-radius: calc(var(--radius-lg) - 2px);
   background: var(--stage-bg);
@@ -1416,7 +1416,7 @@ body[data-theme="light"] .site-footer-score img {
   }
 
   .honors-stage {
-    height: clamp(240px, 70vw, 340px);
+    height: clamp(220px, 64vw, 300px);
   }
 
   .honor-card {
