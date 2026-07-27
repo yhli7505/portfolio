@@ -228,7 +228,7 @@
           },
           item5: {
             title: 'Agent CLI 应用方案调研',
-            description: '对比飞书、企微与钉钉 CLI 集成方案，梳理平台 API、CLI、Skill 和 Agent 之间的调用关系。',
+            description: '对比主流桌面 Agent 中，飞书、企微与钉钉 CLI 集成方案，梳理平台 API、CLI、Skill 和 Agent 之间的调用关系。',
             ariaLabel: '查看完整调研：Agent CLI 应用方案'
           },
           item6: {
@@ -483,7 +483,7 @@
           },
           item5: {
             title: 'Agent CLI Integration Research',
-            description: 'Compares Lark, WeCom, and DingTalk CLI integrations and maps the relationship between platform APIs, CLIs, Skills, and Agents.',
+            description: 'Compares how mainstream desktop Agents integrate Lark, WeCom, and DingTalk CLIs, and maps the relationship between platform APIs, CLIs, Skills, and Agents.',
             ariaLabel: 'View full research: Agent CLI integrations'
           },
           item6: {
