@@ -605,6 +605,7 @@ html[lang="en"] .hero-right {
 .card,
 .metric-card,
 .timeline-item,
+.research-showcase,
 .chart-card,
 .contact-panel {
   background: var(--card-bg);
@@ -616,6 +617,7 @@ html[lang="en"] .hero-right {
 .card,
 .metric-card,
 .timeline-item,
+.research-showcase,
 .chart-card {
   padding: 24px;
 }
@@ -1007,6 +1009,110 @@ html[lang="en"] .hero-right {
   font-size: 13px;
 }
 
+.research-showcase {
+  margin-top: 18px;
+}
+
+.research-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.research-heading h3 {
+  margin: 0;
+  font-size: clamp(24px, 3vw, 32px);
+}
+
+.research-heading > p {
+  max-width: 460px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: right;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.research-card {
+  position: relative;
+  min-height: 208px;
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, color-mix(in srgb, var(--accent) 8%, transparent), transparent 48%),
+    color-mix(in srgb, var(--surface-soft) 78%, transparent);
+  transition: transform 0.24s ease, border-color 0.24s ease, background-color 0.24s ease, box-shadow 0.24s ease;
+}
+
+.research-card::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-warm));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.28s ease;
+}
+
+.research-card:hover {
+  transform: translateY(-4px);
+  border-color: color-mix(in srgb, var(--accent) 48%, transparent);
+  box-shadow: 0 18px 36px color-mix(in srgb, var(--accent) 10%, transparent);
+}
+
+.research-card:hover::after,
+.research-card:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.research-card:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+}
+
+.research-card-index {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.research-card h4 {
+  margin: 18px 0 8px;
+  color: var(--text);
+  font-size: 19px;
+  line-height: 1.4;
+}
+
+.research-card > p {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.research-card-cta {
+  margin-top: auto;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+
 .chart-card {
   margin-top: 18px;
 }
@@ -1290,6 +1396,16 @@ body[data-theme="light"] .site-footer-score img {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .research-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .research-heading > p {
+    text-align: left;
+  }
+
   .about-grid .card,
   .skills-grid .card {
     grid-column: span 6;
@@ -1456,6 +1572,14 @@ body[data-theme="light"] .site-footer-score img {
 
   .metrics-grid {
     grid-template-columns: 1fr;
+  }
+
+  .research-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .research-card {
+    min-height: 0;
   }
 
   .bar-row {

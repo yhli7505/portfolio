@@ -132,9 +132,20 @@
         tag: 'Experience',
         title: '实习经历',
         summary: '以结果为导向的产品实践，从策略设计到上线验证均有完整经验。',
+        dumate: {
+          company: '【百度】百度在线网络技术(北京)有限公司',
+          link: '访问 DuMate 官网',
+          meta: 'Agent&Tool产品组 | DuMate产品经理实习生 | 2026.06 - 至今',
+          item1: '建立 Skill 静态/动态评估体系，制定 30+ 检查项及 Artifacts + Trace 评估方案，以评分报告支撑官方 Skill 审核、上架与版本治理。',
+          item2: '针对用户上传 Skill 的权限与合规风险，设计“通过/提醒/拦截”分级规则，阻断风险内容进入用户环境。',
+          item3: '参与专家套件体系设计，将 Skill、MCP/Connector 与方法论封装为场景化工作流，推动行业首个自媒体套件及设计套件落地。',
+          item4: '负责“搭子时刻”AI UGC 传播链路，设计发布、监管与“运行同款”功能，沉淀可分享、可复用的任务及 Skill 资产。',
+          item5: '设计智能路由策略，按任务类型、安全与时延成本分流至云端/本地沙箱及 Chat 模式，任务耗时降低约 20%，Token 利用率提升约 25%。'
+        },
         kimi: {
-          company: '北京月之暗面科技有限公司',
+          company: '【Kimi AI】北京月之暗面科技有限公司',
           link: '访问 Kimi 开放平台官网',
+          url: 'https://platform.kimi.com/',
           meta: 'API Team | 产品实习生 | 2026.01 - 2026.04',
           item1: '参与 Kimi 企业版产品设计，规划“数据不进训练、后端标识隔离”的核心合规逻辑，串联企业认证、批量下单、坐席分配及成员管理闭环。',
           item2: '搭建 Kimi 开放平台充值、账单、支付状态等核心模块埋点体系，定义关键事件并构建转化漏斗，定位支付前后流失节点并推动体验优化。',
@@ -142,8 +153,9 @@
           item4: '通过 Dify 搭建 AI 客服 bot，完成 LLM、知识检索和问题分类模块配置，减少人工转接频次并提升客服自动化能力。'
         },
         zhipu: {
-          company: '北京智谱华章科技股份有限公司',
+          company: '【智谱AI】北京智谱华章科技股份有限公司',
           link: '访问北京智谱华章科技股份有限公司官网',
+          url: 'https://bigmodel.cn',
           meta: 'MaaS 平台部 | 产品实习生 | 2025.06 - 2025.10',
           item1: '参与 MCP 生态平台从 0 到 1 建设，明确“一站式调用、端内闭环”定位并推动规划排期。',
           item2: '主导 BigModel 多核心板块改版，推动资源包转化率从 3% 提升至 5.2%。',
@@ -152,7 +164,7 @@
           item5: '制定知识库召回评测规则并实现人评机评皮尔逊相关系数 0.899。'
         },
         baidu: {
-          company: '百度时代网络技术（北京）有限公司',
+          company: '【百度】百度在线网络技术(北京)有限公司',
           link: '访问百度千帆平台官网',
           meta: 'AI 业务质量效能组 | 测试开发实习生 | 2024.09 - 2024.12',
           item1: '主导文心一言质量保障，设计防御性与性能指标体系并参与需求评审。',
@@ -161,8 +173,9 @@
           item4: '协同算法与运营团队优化版本管理和用例策略，推动四则运算准确率提升 18%。'
         },
         baic: {
-          company: '北京汽车股份有限公司',
+          company: '【北汽】北京汽车股份有限公司',
           link: '访问北京汽车股份有限公司官网',
+          url: 'https://www.baicgroup.com.cn',
           meta: '信息技术部 | 产品项目管理实习生 | 2024.07 - 2024.09',
           item1: '主导工单系统优化需求分析，输出多方案对比并落地“服务台+多维表格”。',
           item2: '独立完成工单系统 0 到 1 搭建，推动试点上线后满意度达到 95%。',
@@ -172,7 +185,7 @@
       highlights: {
         tag: 'Highlights',
         title: '成果数据与案例亮点',
-        summary: '通过关键指标可视化，直观展示产品决策带来的业务价值。',
+        summary: '通过关键指标与精选调研案例，展示产品决策带来的业务价值与思考过程。',
         metric1: {
           label: '资源包购买转化率',
           note: '从 3.0% 提升至 5.2%'
@@ -188,6 +201,41 @@
         metric4: {
           label: '平台月注册量增长',
           note: '裂变活动后环比增长 35%'
+        },
+        research: {
+          title: '调研案例',
+          note: '围绕 AI Agent、Skill 生态与产品能力的精选研究。',
+          cta: '查看完整调研',
+          item1: {
+            title: 'Loop Engineering',
+            description: '梳理 Prompt、Context、Harness 与 Loop 的角色边界，分析 Agent 如何通过反馈循环持续推进复杂任务。',
+            ariaLabel: '查看完整调研：Loop Engineering'
+          },
+          item2: {
+            title: '扣子 3.0 调研',
+            description: '从产品定位、多 Agent 协作、项目空间、三端协同与商业模式出发，评估核心亮点及实际交付限制。',
+            ariaLabel: '查看完整调研：扣子 3.0'
+          },
+          item3: {
+            title: 'Kimi Work 调研',
+            description: '分析 Goal Mode、Agent Swarm、本地优先架构及 WebBridge 能力，拆解知识工作场景的差异化路径。',
+            ariaLabel: '查看完整调研：Kimi Work'
+          },
+          item4: {
+            title: 'Record & Replay 录制技能调研',
+            description: '研究通过观察用户实际操作沉淀 Skill 的流程、产品价值与适用边界，降低业务知识显性化门槛。',
+            ariaLabel: '查看完整调研：Record & Replay 录制技能'
+          },
+          item5: {
+            title: 'Agent CLI 应用方案调研',
+            description: '对比飞书、企微与钉钉 CLI 集成方案，梳理平台 API、CLI、Skill 和 Agent 之间的调用关系。',
+            ariaLabel: '查看完整调研：Agent CLI 应用方案'
+          },
+          item6: {
+            title: 'Skill 社区调研',
+            description: '对比国内外 Skill 社区的供给规模、质量分层、安全审核、评价机制与商业化路径。',
+            ariaLabel: '查看完整调研：Skill 社区'
+          }
         },
         chart: {
           title: '核心能力雷达（能力成熟度）',
@@ -339,9 +387,20 @@
         tag: 'Experience',
         title: 'Internship Experience',
         summary: 'Hands-on product work with full-cycle experience from strategy design to launch validation.',
+        dumate: {
+          company: 'Baidu',
+          link: 'Visit the DuMate website',
+          meta: 'Agent & Tool Product Team | DuMate Product Manager Intern | Jun 2026 - Present',
+          item1: 'Built static and dynamic Skill evaluation systems with 30+ checks and an Artifacts + Trace framework, using score reports to support official Skill reviews, publishing, and version governance.',
+          item2: 'Defined pass, warn, and block rules for user-uploaded Skills based on permission and compliance risks, preventing unsafe content from entering user environments.',
+          item3: 'Helped design Expert Suites by packaging Skills, MCPs/Connectors, and methodologies into scenario-based workflows, launching the industry’s first creator-media suite and a design suite.',
+          item4: 'Designed the DuMate Moments AI UGC journey across publishing, moderation, and “run the same workflow” interactions, turning outcomes into shareable and reusable task and Skill assets.',
+          item5: 'Designed intelligent routing across cloud and local sandboxes plus Chat mode based on task type, security, and latency cost, reducing completion time by about 20% and improving token utilization by about 25%.'
+        },
         kimi: {
           company: 'Moonshot AI',
           link: 'Visit the Kimi Platform',
+          url: 'https://platform.kimi.ai/',
           meta: 'API Team | Product Intern | Jan 2026 - Apr 2026',
           item1: 'Contributed to the design of Kimi Business Edition, defining core compliance logic such as training exclusion and backend identity isolation while connecting enterprise verification, bulk ordering, seat allocation, and member management into one closed loop.',
           item2: 'Built the event tracking framework for recharge, billing, and payment-status flows on the Kimi Platform, mapped the funnel, identified drop-off points around payment, and drove experience improvements.',
@@ -351,6 +410,7 @@
         zhipu: {
           company: 'Zhipu AI',
           link: 'Visit the Zhipu AI website',
+          url: 'https://z.ai/model-api',
           meta: 'MaaS Platform Department | Product Intern | Jun 2025 - Oct 2025',
           item1: 'Participated in building an MCP ecosystem platform from 0 to 1, clarifying the product position around one-stop access and in-app closed-loop usage while pushing roadmap planning.',
           item2: 'Led the revamp of multiple key modules in BigModel, increasing package purchase conversion from 3% to 5.2%.',
@@ -370,6 +430,7 @@
         baic: {
           company: 'BAIC Motor',
           link: 'Visit the BAIC website',
+          url: 'https://www.baicglobal.com/',
           meta: 'IT Department | Product Project Management Intern | Jul 2024 - Sep 2024',
           item1: 'Led requirement analysis for service-ticket system optimization, compared multiple solution paths, and landed a service-desk plus multi-dimensional table workflow.',
           item2: 'Independently built a ticketing system from 0 to 1, with pilot satisfaction reaching 95% after launch.',
@@ -379,7 +440,7 @@
       highlights: {
         tag: 'Highlights',
         title: 'Impact & Selected Outcomes',
-        summary: 'Key metrics that make the business value of product decisions easy to see.',
+        summary: 'Key metrics and selected research that show both the impact and reasoning behind product decisions.',
         metric1: {
           label: 'Package Purchase Conversion',
           note: 'Improved from 3.0% to 5.2%'
@@ -395,6 +456,41 @@
         metric4: {
           label: 'Monthly Registration Growth',
           note: 'Up 35% MoM after the referral campaign'
+        },
+        research: {
+          title: 'Research Cases',
+          note: 'Selected studies on AI Agents, the Skill ecosystem, and product capabilities.',
+          cta: 'View full research',
+          item1: {
+            title: 'Loop Engineering',
+            description: 'Clarifies the roles of Prompt, Context, Harness, and Loop, and examines how feedback loops help Agents advance complex tasks continuously.',
+            ariaLabel: 'View full research: Loop Engineering'
+          },
+          item2: {
+            title: 'Coze 3.0 Research',
+            description: 'Evaluates Coze 3.0 through its positioning, multi-Agent collaboration, project spaces, cross-device experience, monetization, and delivery constraints.',
+            ariaLabel: 'View full research: Coze 3.0'
+          },
+          item3: {
+            title: 'Kimi Work Research',
+            description: 'Analyzes Goal Mode, Agent Swarm, its local-first architecture, and WebBridge to uncover a differentiated path for knowledge work.',
+            ariaLabel: 'View full research: Kimi Work'
+          },
+          item4: {
+            title: 'Record & Replay Skill Research',
+            description: 'Studies how observing real user actions can turn tacit workflows into reusable Skills, lowering the barrier to capturing business knowledge.',
+            ariaLabel: 'View full research: Record & Replay Skill'
+          },
+          item5: {
+            title: 'Agent CLI Integration Research',
+            description: 'Compares Lark, WeCom, and DingTalk CLI integrations and maps the relationship between platform APIs, CLIs, Skills, and Agents.',
+            ariaLabel: 'View full research: Agent CLI integrations'
+          },
+          item6: {
+            title: 'Skill Community Research',
+            description: 'Compares domestic and global Skill communities across supply, quality, safety review, evaluation mechanisms, and monetization.',
+            ariaLabel: 'View full research: Skill communities'
+          }
         },
         chart: {
           title: 'Core Capability Radar (Maturity Score)',
@@ -487,6 +583,8 @@
         el.innerHTML = value;
       } else if (attribute === 'data-i18n-aria-label') {
         el.setAttribute('aria-label', value);
+      } else if (attribute === 'data-i18n-href') {
+        el.setAttribute('href', value);
       } else if (attribute === 'data-i18n-title') {
         el.setAttribute('title', value);
       } else if (attribute === 'data-i18n-data-type-text') {
@@ -554,6 +652,7 @@
     applyContentMap('[data-i18n]', 'data-i18n');
     applyContentMap('[data-i18n-html]', 'data-i18n-html');
     applyContentMap('[data-i18n-aria-label]', 'data-i18n-aria-label');
+    applyContentMap('[data-i18n-href]', 'data-i18n-href');
     applyContentMap('[data-i18n-title]', 'data-i18n-title');
     applyContentMap('[data-i18n-data-type-text]', 'data-i18n-data-type-text');
 
