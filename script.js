@@ -1,5 +1,7 @@
 (() => {
   const root = document.documentElement;
+  const honorsAssetBase = (root.dataset.honorsAssetBase || '').replace(/\/$/, '');
+  const resolveHonorAsset = (path) => honorsAssetBase ? `${honorsAssetBase}/${path}` : path;
   const header = document.querySelector('.site-header');
   const menuToggle = document.querySelector('.menu-toggle');
   const nav = document.querySelector('.site-nav');
@@ -135,10 +137,10 @@
         dumate: {
           company: '【百度】百度在线网络技术(北京)有限公司',
           link: '访问 DuMate 官网',
-          meta: 'Agent&Tool产品组 | DuMate产品经理实习生 | 2026.06 - 至今',
-          item1: '建立 Skill 静态/动态评估体系，制定 30+ 检查项及 Artifacts + Trace 评估方案，以评分报告支撑官方 Skill 审核、上架与版本治理。',
-          item2: '针对用户上传 Skill 的权限与合规风险，设计“通过/提醒/拦截”分级规则，阻断风险内容进入用户环境。',
-          item3: '参与专家套件体系设计，将 Skill、MCP/Connector 与方法论封装为场景化工作流，推动行业首个自媒体套件及设计套件落地。',
+          meta: 'DuMate产品部 | Agent产品经理实习生 | 2026.06 - 至今',
+          item1: '参与专家套件体系设计，将 Skill、MCP/Connector 与方法论封装为场景化工作流，结合用户日志筛选并推动自媒体、金融、设计等套件落地。',
+          item2: '建立 Skill 静态/动态评估体系，制定 30+ 检查项及 Artifacts + Trace 评估方案，以评分报告支撑官方 Skill 审核、上架与版本治理。',
+          item3: '针对用户上传 Skill 的权限与合规风险，设计“通过/提醒/拦截”分级规则，阻断风险内容进入用户环境。',
           item4: '负责“搭子时刻”AI UGC 传播链路，设计发布、监管与“运行同款”功能，沉淀可分享、可复用的任务及 Skill 资产。',
           item5: '设计智能路由策略，按任务类型、安全与时延成本分流至云端/本地沙箱及 Chat 模式，任务耗时降低约 20%，Token 利用率提升约 25%。'
         },
@@ -207,34 +209,44 @@
           note: '围绕 AI Agent、Skill 生态与产品能力的精选研究。',
           cta: '查看完整调研',
           item1: {
-            title: 'Loop Engineering',
-            description: '梳理 Prompt、Context、Harness 与 Loop 的角色边界，分析 Agent 如何通过反馈循环持续推进复杂任务。',
-            ariaLabel: '查看完整调研：Loop Engineering'
+            title: 'Agent 生态规划思考',
+            description: '梳理 Agent 生态从能力接入走向完整体验交付的趋势，分析 Skill、Connector 与 Agent App 的协作边界。',
+            ariaLabel: '查看完整调研：Agent 生态规划思考'
           },
           item2: {
-            title: '扣子 3.0 调研',
-            description: '从产品定位、多 Agent 协作、项目空间、三端协同与商业模式出发，评估核心亮点及实际交付限制。',
-            ariaLabel: '查看完整调研：扣子 3.0'
+            title: 'Agent 能力资产迁移思考',
+            description: '讨论跨 Agent 发现与迁移本地 Skill 的收益、成本和治理边界，分析“能发现”与“能自动用”的差异。',
+            ariaLabel: '查看完整调研：Agent 能力资产迁移思考'
           },
           item3: {
-            title: 'Kimi Work 调研',
-            description: '分析 Goal Mode、Agent Swarm、本地优先架构及 WebBridge 能力，拆解知识工作场景的差异化路径。',
-            ariaLabel: '查看完整调研：Kimi Work'
+            title: 'WorkBuddy 生态模式讨论',
+            description: '拆解 Buddy 应用的产品形态、开放机制与生态分层，讨论 Skill、Connector、Expert 等能力的组合方式。',
+            ariaLabel: '查看完整调研：WorkBuddy 生态模式讨论'
           },
           item4: {
-            title: 'Record & Replay 录制技能调研',
-            description: '研究通过观察用户实际操作沉淀 Skill 的流程、产品价值与适用边界，降低业务知识显性化门槛。',
-            ariaLabel: '查看完整调研：Record & Replay 录制技能'
-          },
-          item5: {
             title: 'Agent CLI 应用方案调研',
             description: '对比主流桌面 Agent 中，飞书、企微与钉钉 CLI 集成方案，梳理平台 API、CLI、Skill 和 Agent 之间的调用关系。',
             ariaLabel: '查看完整调研：Agent CLI 应用方案'
+          },
+          item5: {
+            title: 'Record & Replay 录制技能调研',
+            description: '研究通过观察用户实际操作沉淀 Skill 的流程、产品价值与适用边界，降低业务知识显性化门槛。',
+            ariaLabel: '查看完整调研：Record & Replay 录制技能'
           },
           item6: {
             title: 'Skill 社区调研',
             description: '对比国内外 Skill 社区的供给规模、质量分层、安全审核、评价机制与商业化路径。',
             ariaLabel: '查看完整调研：Skill 社区'
+          },
+          item7: {
+            title: 'Loop Engineering',
+            description: '梳理 Prompt、Context、Harness 与 Loop 的角色边界，分析 Agent 如何通过反馈循环持续推进复杂任务。',
+            ariaLabel: '查看完整调研：Loop Engineering'
+          },
+          item8: {
+            title: '扣子 3.0 调研',
+            description: '从产品定位、多 Agent 协作、项目空间、三端协同与商业模式出发，评估核心亮点及实际交付限制。',
+            ariaLabel: '查看完整调研：扣子 3.0'
           }
         },
         chart: {
@@ -390,10 +402,10 @@
         dumate: {
           company: 'Baidu',
           link: 'Visit the DuMate website',
-          meta: 'Agent & Tool Product Team | DuMate Product Manager Intern | Jun 2026 - Present',
-          item1: 'Built static and dynamic Skill evaluation systems with 30+ checks and an Artifacts + Trace framework, using score reports to support official Skill reviews, publishing, and version governance.',
-          item2: 'Defined pass, warn, and block rules for user-uploaded Skills based on permission and compliance risks, preventing unsafe content from entering user environments.',
-          item3: 'Helped design Expert Suites by packaging Skills, MCPs/Connectors, and methodologies into scenario-based workflows, launching the industry’s first creator-media suite and a design suite.',
+          meta: 'DuMate Product Department | Agent Product Manager Intern | Jun 2026 - Present',
+          item1: 'Helped design Expert Suites by packaging Skills, MCPs/Connectors, and methodologies into scenario-based workflows, using user logs to identify and launch creator-media, finance, and design suites.',
+          item2: 'Built static and dynamic Skill evaluation systems with 30+ checks and an Artifacts + Trace framework, using score reports to support official Skill reviews, publishing, and version governance.',
+          item3: 'Defined pass, warn, and block rules for user-uploaded Skills based on permission and compliance risks, preventing unsafe content from entering user environments.',
           item4: 'Designed the DuMate Moments AI UGC journey across publishing, moderation, and “run the same workflow” interactions, turning outcomes into shareable and reusable task and Skill assets.',
           item5: 'Designed intelligent routing across cloud and local sandboxes plus Chat mode based on task type, security, and latency cost, reducing completion time by about 20% and improving token utilization by about 25%.'
         },
@@ -462,34 +474,44 @@
           note: 'Selected studies on AI Agents, the Skill ecosystem, and product capabilities.',
           cta: 'View full research',
           item1: {
-            title: 'Loop Engineering',
-            description: 'Clarifies the roles of Prompt, Context, Harness, and Loop, and examines how feedback loops help Agents advance complex tasks continuously.',
-            ariaLabel: 'View full research: Loop Engineering'
+            title: 'Agent Ecosystem Planning',
+            description: 'Maps the shift from capability access to complete experience delivery, and examines how Skills, Connectors, and Agent Apps fit together.',
+            ariaLabel: 'View full research: Agent ecosystem planning'
           },
           item2: {
-            title: 'Coze 3.0 Research',
-            description: 'Evaluates Coze 3.0 through its positioning, multi-Agent collaboration, project spaces, cross-device experience, monetization, and delivery constraints.',
-            ariaLabel: 'View full research: Coze 3.0'
+            title: 'Agent Capability Asset Migration',
+            description: 'Examines the benefits, costs, and governance boundaries of discovering and migrating local Skills across Agents.',
+            ariaLabel: 'View full research: Agent capability asset migration'
           },
           item3: {
-            title: 'Kimi Work Research',
-            description: 'Analyzes Goal Mode, Agent Swarm, its local-first architecture, and WebBridge to uncover a differentiated path for knowledge work.',
-            ariaLabel: 'View full research: Kimi Work'
+            title: 'WorkBuddy Ecosystem Model',
+            description: 'Breaks down the Buddy App form, openness model, and ecosystem layers, including how Skills, Connectors, and Experts combine.',
+            ariaLabel: 'View full research: WorkBuddy ecosystem model'
           },
           item4: {
+            title: 'Agent CLI Integration Research',
+            description: 'Compares Lark, WeCom, and DingTalk CLI integrations in desktop Agents, mapping platform APIs, CLIs, Skills, and Agents.',
+            ariaLabel: 'View full research: Agent CLI integrations'
+          },
+          item5: {
             title: 'Record & Replay Skill Research',
             description: 'Studies how observing real user actions can turn tacit workflows into reusable Skills, lowering the barrier to capturing business knowledge.',
             ariaLabel: 'View full research: Record & Replay Skill'
-          },
-          item5: {
-            title: 'Agent CLI Integration Research',
-            description: 'Compares how mainstream desktop Agents integrate Lark, WeCom, and DingTalk CLIs, and maps the relationship between platform APIs, CLIs, Skills, and Agents.',
-            ariaLabel: 'View full research: Agent CLI integrations'
           },
           item6: {
             title: 'Skill Community Research',
             description: 'Compares domestic and global Skill communities across supply, quality, safety review, evaluation mechanisms, and monetization.',
             ariaLabel: 'View full research: Skill communities'
+          },
+          item7: {
+            title: 'Loop Engineering',
+            description: 'Clarifies the roles of Prompt, Context, Harness, and Loop, and examines how feedback loops help Agents advance complex tasks continuously.',
+            ariaLabel: 'View full research: Loop Engineering'
+          },
+          item8: {
+            title: 'Coze 3.0 Research',
+            description: 'Evaluates Coze 3.0 through its positioning, multi-Agent collaboration, project spaces, cross-device experience, monetization, and delivery constraints.',
+            ariaLabel: 'View full research: Coze 3.0'
           }
         },
         chart: {
@@ -546,21 +568,21 @@
   };
 
   const honorsData = [
-    { src: 'honors/national_scholarship.jpg', title: { zh: '国家奖学金', en: 'National Scholarship' } },
-    { src: 'honors/zhong_maojun_scholarship.jpg', title: { zh: '“钟茂钧”专项奖学金', en: 'Zhong Maojun Special Scholarship' } },
-    { src: 'honors/challenge_cup_1st.png', title: { zh: '“挑战杯”一等奖', en: 'Challenge Cup - 1st Prize' } },
-    { src: 'honors/internet_plus_innovation_2nd.png', title: { zh: '“互联网+”二等奖', en: 'Internet+ Innovation Competition - 2nd Prize' } },
-    { src: 'honors/c4_network_champion_national.jpg', title: { zh: '网络技术挑战赛全国一等奖', en: 'National 1st Prize, Network Technology Challenge' } },
-    { src: 'honors/c4_network_champion_north_china.jpg', title: { zh: '网络技术挑战赛华北一等奖', en: 'North China 1st Prize, Network Technology Challenge' } },
-    { src: 'honors/c4_network_3rd_north_china.jpg', title: { zh: '网络技术挑战赛华北三等奖', en: 'North China 3rd Prize, Network Technology Challenge' } },
-    { src: 'honors/innovation_project_beijing.png', title: { zh: '北京市创新创业训练项目', en: 'Beijing Innovation and Entrepreneurship Training Project' } },
-    { src: 'honors/innovation_project_school.jpg', title: { zh: '校级创新创业训练项目', en: 'University-level Innovation and Entrepreneurship Training Project' } },
-    { src: 'honors/academic_excellence_scholarship_2022.jpg', title: { zh: '学业优秀奖学金（2022）', en: 'Academic Excellence Scholarship (2022)' } },
-    { src: 'honors/academic_excellence_scholarship_2023.jpg', title: { zh: '学业优秀奖学金（2023）', en: 'Academic Excellence Scholarship (2023)' } },
-    { src: 'honors/merit_student_2022.jpg', title: { zh: '三好学生（2022）', en: 'Merit Student (2022)' } },
-    { src: 'honors/merit_student_2023.jpg', title: { zh: '三好学生（2023）', en: 'Merit Student (2023)' } },
-    { src: 'honors/outstanding_youth_member_school.jpg', title: { zh: '校级优秀团员', en: 'Outstanding Youth League Member (University)' } },
-    { src: 'honors/outstanding_youth_member_college.jpg', title: { zh: '院级优秀团员', en: 'Outstanding Youth League Member (School of Study)' } }
+    { src: 'honors/national_scholarship.jpg', preview: 'honors/previews/national_scholarship.jpg', title: { zh: '国家奖学金', en: 'National Scholarship' } },
+    { src: 'honors/zhong_maojun_scholarship.jpg', preview: 'honors/previews/zhong_maojun_scholarship.jpg', title: { zh: '“钟茂钧”专项奖学金', en: 'Zhong Maojun Special Scholarship' } },
+    { src: 'honors/challenge_cup_1st.png', preview: 'honors/previews/challenge_cup_1st.jpg', title: { zh: '“挑战杯”一等奖', en: 'Challenge Cup - 1st Prize' } },
+    { src: 'honors/internet_plus_innovation_2nd.png', preview: 'honors/previews/internet_plus_innovation_2nd.jpg', title: { zh: '“互联网+”二等奖', en: 'Internet+ Innovation Competition - 2nd Prize' } },
+    { src: 'honors/c4_network_champion_national.jpg', preview: 'honors/previews/c4_network_champion_national.jpg', title: { zh: '网络技术挑战赛全国一等奖', en: 'National 1st Prize, Network Technology Challenge' } },
+    { src: 'honors/c4_network_champion_north_china.jpg', preview: 'honors/previews/c4_network_champion_north_china.jpg', title: { zh: '网络技术挑战赛华北一等奖', en: 'North China 1st Prize, Network Technology Challenge' } },
+    { src: 'honors/c4_network_3rd_north_china.jpg', preview: 'honors/previews/c4_network_3rd_north_china.jpg', title: { zh: '网络技术挑战赛华北三等奖', en: 'North China 3rd Prize, Network Technology Challenge' } },
+    { src: 'honors/innovation_project_beijing.png', preview: 'honors/previews/innovation_project_beijing.jpg', title: { zh: '北京市创新创业训练项目', en: 'Beijing Innovation and Entrepreneurship Training Project' } },
+    { src: 'honors/innovation_project_school.jpg', preview: 'honors/previews/innovation_project_school.jpg', title: { zh: '校级创新创业训练项目', en: 'University-level Innovation and Entrepreneurship Training Project' } },
+    { src: 'honors/academic_excellence_scholarship_2022.jpg', preview: 'honors/previews/academic_excellence_scholarship_2022.jpg', title: { zh: '学业优秀奖学金（2022）', en: 'Academic Excellence Scholarship (2022)' } },
+    { src: 'honors/academic_excellence_scholarship_2023.jpg', preview: 'honors/previews/academic_excellence_scholarship_2023.jpg', title: { zh: '学业优秀奖学金（2023）', en: 'Academic Excellence Scholarship (2023)' } },
+    { src: 'honors/merit_student_2022.jpg', preview: 'honors/previews/merit_student_2022.jpg', title: { zh: '三好学生（2022）', en: 'Merit Student (2022)' } },
+    { src: 'honors/merit_student_2023.jpg', preview: 'honors/previews/merit_student_2023.jpg', title: { zh: '三好学生（2023）', en: 'Merit Student (2023)' } },
+    { src: 'honors/outstanding_youth_member_school.jpg', preview: 'honors/previews/outstanding_youth_member_school.jpg', title: { zh: '校级优秀团员', en: 'Outstanding Youth League Member (University)' } },
+    { src: 'honors/outstanding_youth_member_college.jpg', preview: 'honors/previews/outstanding_youth_member_college.jpg', title: { zh: '院级优秀团员', en: 'Outstanding Youth League Member (School of Study)' } }
   ];
 
   let currentTheme = 'dark';
@@ -981,7 +1003,9 @@
         media.className = 'honor-card-media';
 
         const img = document.createElement('img');
-        img.src = item.src;
+        // Do not request every certificate while the carousel is being built.
+        // renderCards() hydrates the active card and its nearby cards on demand.
+        img.dataset.src = resolveHonorAsset(item.preview || item.src);
         img.alt = item.title[currentLanguage];
         img.loading = 'lazy';
         img.decoding = 'async';
@@ -1011,11 +1035,23 @@
         return offset;
       };
 
+      const hydrateImage = (image, distance) => {
+        if (!image || image.dataset.loaded === 'true') return;
+
+        const source = image.dataset.src;
+        if (!source) return;
+
+        image.loading = distance === 0 ? 'eager' : 'lazy';
+        image.fetchPriority = distance === 0 ? 'high' : 'low';
+        image.src = source;
+        image.dataset.loaded = 'true';
+      };
+
       const openLightbox = (index) => {
         if (!lightbox || !lightboxImage || !lightboxCaption) return;
         const title = getHonorTitle(index);
         const item = honorsData[index];
-        lightboxImage.src = item.src;
+        lightboxImage.src = resolveHonorAsset(item.src);
         lightboxImage.alt = title;
         lightboxCaption.textContent = title;
         lightbox.hidden = false;
@@ -1072,6 +1108,12 @@
 
           const title = getHonorTitle(index);
           const image = card.querySelector('img');
+
+          // Keep only the active card and its two neighbours warm. This is
+          // especially useful when the source images live on GitHub Pages.
+          if (visible) {
+            hydrateImage(image, distance);
+          }
 
           card.classList.toggle('is-active', offset === 0);
           card.classList.toggle('is-hidden', !visible);

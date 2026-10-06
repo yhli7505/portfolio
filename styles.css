@@ -1095,6 +1095,32 @@ html[lang="en"] .hero-right {
   font-weight: 700;
 }
 
+.research-card-link-icon {
+  position: absolute;
+  right: 21px;
+  bottom: 18px;
+  display: inline-flex;
+  color: var(--muted);
+  transition: color 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.research-card-link-icon svg {
+  width: 28px;
+  height: 28px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.25;
+}
+
+.research-card:hover .research-card-link-icon,
+.research-card:focus-visible .research-card-link-icon {
+  color: var(--accent);
+  transform: translate(1px, -1px);
+}
+
 .chart-card {
   margin-top: 18px;
 }
