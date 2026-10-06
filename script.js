@@ -1047,6 +1047,33 @@
         image.dataset.loaded = 'true';
       };
 
+      const preloadRemainingPreviews = () => {
+        cards.forEach((card) => {
+          const image = card.querySelector('img');
+          if (!image || image.dataset.loaded === 'true') return;
+
+          const source = image.dataset.src;
+          if (!source) return;
+
+          // Warm the remaining compressed previews in the background without
+          // requesting the original certificate files.
+          image.loading = 'eager';
+          image.fetchPriority = 'low';
+          image.src = source;
+          image.dataset.loaded = 'true';
+        });
+      };
+
+      const schedulePreviewPreload = () => {
+        const run = () => preloadRemainingPreviews();
+
+        if ('requestIdleCallback' in window) {
+          window.requestIdleCallback(run, { timeout: 2500 });
+        } else {
+          window.setTimeout(run, 1200);
+        }
+      };
+
       const openLightbox = (index) => {
         if (!lightbox || !lightboxImage || !lightboxCaption) return;
         const title = getHonorTitle(index);
@@ -1221,6 +1248,12 @@
       document.addEventListener('portfolio:languagechange', renderCards);
 
       renderCards();
+
+      if (document.readyState === 'complete') {
+        schedulePreviewPreload();
+      } else {
+        window.addEventListener('load', schedulePreviewPreload, { once: true });
+      }
     }
   }
 
