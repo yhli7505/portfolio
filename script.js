@@ -121,7 +121,6 @@
       },
       honors: {
         heading: '荣誉影像',
-        description: '点击左右按钮切换，点击当前主卡可放大查看。',
         stage: '荣誉轮播，支持左右方向键切换',
         prev: '查看上一张',
         next: '查看下一张',
@@ -251,8 +250,8 @@
         },
         chart: {
           title: '核心能力雷达（能力成熟度）',
-          note: '基于实习项目产出与指标结果的综合评估（满分 100）',
           ariaLabel: '产品能力评估条形图',
+          radarAriaLabel: '需求洞察、产品规划、数据分析、跨团队协同与落地推进的能力雷达图',
           item1: '需求洞察',
           item2: '产品规划',
           item3: '数据分析',
@@ -386,7 +385,6 @@
       },
       honors: {
         heading: 'Honors Gallery',
-        description: 'Use the arrows to browse. Click the centered card to view it in full size.',
         stage: 'Honors carousel. Use left and right arrow keys to navigate.',
         prev: 'Previous honor',
         next: 'Next honor',
@@ -516,8 +514,8 @@
         },
         chart: {
           title: 'Core Capability Radar (Maturity Score)',
-          note: 'A composite view based on internship output and business results (out of 100)',
           ariaLabel: 'Bar chart of product capability assessment',
+          radarAriaLabel: 'Capability radar showing user insight, product planning, data analysis, cross-team collaboration, and execution',
           item1: 'User Insight',
           item2: 'Product Planning',
           item3: 'Data Analysis',
@@ -826,6 +824,19 @@
 
   revealItems.forEach((el) => revealObserver.observe(el));
 
+  const capabilityRadar = document.querySelector('.capability-radar');
+  if (capabilityRadar && !prefersReducedMotion) {
+    capabilityRadar.classList.add('radar-animate');
+    const radarObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.35) return;
+        entry.target.classList.add('is-radar-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.35 });
+    radarObserver.observe(capabilityRadar);
+  }
+
   setTimeout(() => {
     if (!heroTyped) {
       runHeroTypewriter();
@@ -1021,6 +1032,89 @@
       let activeIndex = 0;
       let hoveredIndex = null;
       const bodyOverflow = document.body.style.overflow;
+      const decodedImages = new WeakSet();
+      const hoveredControls = new Set();
+      let autoplayTimer = null;
+      let visibilityFrame = null;
+
+      const stopAutoplay = () => {
+        window.clearTimeout(autoplayTimer);
+        autoplayTimer = null;
+      };
+
+      const canAutoplay = () => {
+        if (!stage || total < 2 || document.hidden || hoveredControls.size ||
+            (lightbox && !lightbox.hidden)) return false;
+        // Mouse clicks may leave focus behind; only keyboard focus pauses playback.
+        if (stage.matches(':focus-visible') ||
+            stage.querySelector(':focus-visible')) return false;
+        const image = cards[activeIndex].querySelector('img');
+        if (!decodedImages.has(image)) return false;
+        // Wait for the entire stage to clear the fixed header and the reveal fade.
+        const bounds = stage.getBoundingClientRect();
+        const headerBottom = header?.getBoundingClientRect().bottom || 0;
+        return bounds.top >= headerBottom && bounds.bottom <= window.innerHeight &&
+          bounds.left >= 0 && bounds.right <= window.innerWidth &&
+          Number(window.getComputedStyle(honorsRoot).opacity) >= 0.999;
+      };
+
+      const syncAutoplay = () => {
+        if (!canAutoplay()) {
+          stopAutoplay();
+          return;
+        }
+        if (autoplayTimer !== null) return;
+        // Start a fresh, uninterrupted 2.5 seconds only once the image is visible.
+        autoplayTimer = window.setTimeout(() => {
+          autoplayTimer = null;
+          if (canAutoplay()) setActiveIndex(activeIndex + 1);
+        }, 2500);
+      };
+
+      const checkVisibility = () => {
+        if (visibilityFrame !== null) return;
+        visibilityFrame = window.requestAnimationFrame(() => {
+          visibilityFrame = null;
+          syncAutoplay();
+        });
+      };
+
+      cards.forEach((card) => {
+        const image = card.querySelector('img');
+        const markDecoded = async () => {
+          if (!image.complete || !image.naturalWidth) return;
+          try {
+            await image.decode();
+            decodedImages.add(image);
+            syncAutoplay();
+          } catch {
+            // An unavailable preview must not consume the first image's viewing time.
+          }
+        };
+        image.addEventListener('load', markDecoded);
+        if (image.complete && image.naturalWidth) markDecoded();
+      });
+
+      [...cards, prevBtn, nextBtn].filter(Boolean).forEach((control) => {
+        control.addEventListener('pointerenter', (event) => {
+          if (event.pointerType === 'touch') return;
+          hoveredControls.add(control);
+          stopAutoplay();
+        });
+        control.addEventListener('pointerleave', () => {
+          hoveredControls.delete(control);
+          syncAutoplay();
+        });
+      });
+
+      honorsRoot.addEventListener('focusin', syncAutoplay);
+      honorsRoot.addEventListener('focusout', () => queueMicrotask(syncAutoplay));
+      honorsRoot.addEventListener('transitionend', checkVisibility);
+      window.addEventListener('scroll', checkVisibility, { passive: true });
+      window.addEventListener('resize', checkVisibility, { passive: true });
+      document.addEventListener('visibilitychange', syncAutoplay);
+      window.addEventListener('pagehide', stopAutoplay);
+      window.addEventListener('pageshow', checkVisibility);
 
       const normalizeIndex = (index) => {
         const mod = index % total;
@@ -1083,12 +1177,14 @@
         lightboxCaption.textContent = title;
         lightbox.hidden = false;
         document.body.style.overflow = 'hidden';
+        stopAutoplay();
       };
 
       const closeLightbox = () => {
         if (!lightbox || lightbox.hidden) return;
         lightbox.hidden = true;
         document.body.style.overflow = bodyOverflow;
+        syncAutoplay();
       };
 
       const renderCards = () => {
@@ -1176,8 +1272,10 @@
       };
 
       const setActiveIndex = (nextIndex) => {
+        stopAutoplay();
         activeIndex = normalizeIndex(nextIndex);
         renderCards();
+        syncAutoplay();
       };
 
       cards.forEach((card, index) => {
@@ -1248,6 +1346,7 @@
       document.addEventListener('portfolio:languagechange', renderCards);
 
       renderCards();
+      checkVisibility();
 
       if (document.readyState === 'complete') {
         schedulePreviewPreload();

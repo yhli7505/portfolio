@@ -211,7 +211,6 @@
           <div class="honors-carousel card reveal" data-honors-carousel>
             <div class="honors-heading">
               <h3 data-i18n="honors.heading">荣誉影像</h3>
-              <p data-i18n="honors.description">点击左右按钮切换，点击当前主卡可放大查看。</p>
             </div>
             <div class="honors-stage" tabindex="0" aria-label="荣誉轮播，支持左右方向键切换" data-i18n-aria-label="honors.stage">
               <button class="honors-nav honors-nav-prev" type="button" aria-label="查看上一张" data-honors-prev data-i18n-aria-label="honors.prev">
@@ -602,33 +601,60 @@
           </div>
 
           <div class="chart-card reveal">
-            <h3 data-i18n="highlights.chart.title">核心能力雷达（能力成熟度）</h3>
-            <p class="chart-note" data-i18n="highlights.chart.note">基于实习项目产出与指标结果的综合评估（满分 100）</p>
-            <div class="bar-chart" role="img" aria-label="产品能力评估条形图" data-i18n-aria-label="highlights.chart.ariaLabel">
-              <div class="bar-row">
-                <span data-i18n="highlights.chart.item1">需求洞察</span>
-                <div class="bar-track"><i style="--value: 88%"></i></div>
-                <strong>88</strong>
+            <div class="capability-summary">
+              <h3 data-i18n="highlights.chart.title">核心能力雷达（能力成熟度）</h3>
+            </div>
+            <div class="capability-layout">
+              <div class="bar-chart" role="img" aria-label="产品能力评估条形图" data-i18n-aria-label="highlights.chart.ariaLabel">
+                <div class="bar-row">
+                  <span data-i18n="highlights.chart.item1">需求洞察</span>
+                  <div class="bar-track"><i style="--value: 88%"></i></div>
+                </div>
+                <div class="bar-row">
+                  <span data-i18n="highlights.chart.item2">产品规划</span>
+                  <div class="bar-track"><i style="--value: 91%"></i></div>
+                </div>
+                <div class="bar-row">
+                  <span data-i18n="highlights.chart.item3">数据分析</span>
+                  <div class="bar-track"><i style="--value: 86%"></i></div>
+                </div>
+                <div class="bar-row">
+                  <span data-i18n="highlights.chart.item4">跨团队协同</span>
+                  <div class="bar-track"><i style="--value: 92%"></i></div>
+                </div>
+                <div class="bar-row">
+                  <span data-i18n="highlights.chart.item5">落地推进</span>
+                  <div class="bar-track"><i style="--value: 90%"></i></div>
+                </div>
               </div>
-              <div class="bar-row">
-                <span data-i18n="highlights.chart.item2">产品规划</span>
-                <div class="bar-track"><i style="--value: 91%"></i></div>
-                <strong>91</strong>
-              </div>
-              <div class="bar-row">
-                <span data-i18n="highlights.chart.item3">数据分析</span>
-                <div class="bar-track"><i style="--value: 86%"></i></div>
-                <strong>86</strong>
-              </div>
-              <div class="bar-row">
-                <span data-i18n="highlights.chart.item4">跨团队协同</span>
-                <div class="bar-track"><i style="--value: 92%"></i></div>
-                <strong>92</strong>
-              </div>
-              <div class="bar-row">
-                <span data-i18n="highlights.chart.item5">落地推进</span>
-                <div class="bar-track"><i style="--value: 90%"></i></div>
-                <strong>90</strong>
+              <div class="capability-radar" role="img" aria-label="需求洞察、产品规划、数据分析、跨团队协同与落地推进的能力雷达图" data-i18n-aria-label="highlights.chart.radarAriaLabel">
+                <svg viewBox="0 20 440 300" aria-hidden="true" focusable="false">
+                  <g class="radar-grid">
+                    <polygon points="220.00,159.20 239.78,173.57 232.23,196.83 207.77,196.83 200.22,173.57"></polygon>
+                    <polygon points="220.00,138.40 259.56,167.14 244.45,213.66 195.55,213.66 180.44,167.14"></polygon>
+                    <polygon points="220.00,117.60 279.35,160.72 256.68,230.48 183.32,230.48 160.65,160.72"></polygon>
+                    <polygon points="220.00,96.80 299.13,154.29 268.90,247.31 171.10,247.31 140.87,154.29"></polygon>
+                    <polygon points="220.00,76.00 318.91,147.86 281.13,264.14 158.87,264.14 121.09,147.86"></polygon>
+                    <path d="M220 180 L220.00,76.00"></path>
+                    <path d="M220 180 L318.91,147.86"></path>
+                    <path d="M220 180 L281.13,264.14"></path>
+                    <path d="M220 180 L158.87,264.14"></path>
+                    <path d="M220 180 L121.09,147.86"></path>
+                  </g>
+                  <polygon class="radar-area" points="220.00,88.48 310.01,150.75 272.57,252.36 163.76,257.41 130.98,151.08"></polygon>
+                  <g class="radar-points">
+                    <circle cx="220.00" cy="88.48" r="3.5"></circle>
+                    <circle cx="310.01" cy="150.75" r="3.5"></circle>
+                    <circle cx="272.57" cy="252.36" r="3.5"></circle>
+                    <circle cx="163.76" cy="257.41" r="3.5"></circle>
+                    <circle cx="130.98" cy="151.08" r="3.5"></circle>
+                  </g>
+                </svg>
+                <span class="radar-label radar-label-1" data-i18n="highlights.chart.item1">需求洞察</span>
+                <span class="radar-label radar-label-2" data-i18n="highlights.chart.item2">产品规划</span>
+                <span class="radar-label radar-label-3" data-i18n="highlights.chart.item3">数据分析</span>
+                <span class="radar-label radar-label-4" data-i18n="highlights.chart.item4">跨团队协同</span>
+                <span class="radar-label radar-label-5" data-i18n="highlights.chart.item5">落地推进</span>
               </div>
             </div>
           </div>

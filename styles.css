@@ -1060,6 +1060,10 @@ body[data-theme="light"] .timeline-item:is([data-company="baidu"], [data-company
   border-color: color-mix(in srgb, var(--accent) 62%, transparent);
 }
 
+body[data-theme="light"] .company-link:hover {
+  color: #000000;
+}
+
 .company-link:focus-visible {
   outline: 2px solid color-mix(in srgb, var(--accent) 85%, transparent);
   outline-offset: 2px;
@@ -1199,6 +1203,10 @@ body[data-theme="light"] .timeline-item:is([data-company="baidu"], [data-company
   pointer-events: none;
 }
 
+body[data-theme="light"] .research-card:not(:hover):not(:focus-visible) .research-card-link-icon {
+  color: color-mix(in srgb, var(--muted) 55%, var(--surface));
+}
+
 .research-card-link-icon svg {
   width: 28px;
   height: 28px;
@@ -1225,22 +1233,142 @@ body[data-theme="light"] .timeline-item:is([data-company="baidu"], [data-company
   font-size: 14px;
 }
 
+.capability-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  align-items: stretch;
+  gap: clamp(20px, 3vw, 40px);
+}
+
+.capability-summary {
+  min-width: 0;
+}
+
+.capability-summary .chart-note {
+  margin-bottom: 12px;
+}
+
+.capability-radar {
+  position: relative;
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 440 / 300;
+  justify-self: center;
+}
+
+.capability-radar svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.radar-grid {
+  fill: none;
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.radar-area {
+  fill: var(--accent-soft);
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.radar-points {
+  fill: var(--accent);
+  stroke: var(--surface);
+  stroke-width: 1.5;
+}
+
+.radar-label {
+  position: absolute;
+  width: 30%;
+  transform: translate(-50%, -50%);
+  color: var(--bar-label);
+  font-size: 13px;
+  line-height: 1.45;
+  text-align: center;
+  overflow-wrap: break-word;
+}
+
+.radar-label-1 { left: 50%; top: 10%; }
+.radar-label-3 { left: 68%; top: 90%; }
+.radar-label-4 { left: 32%; top: 90%; }
+
+.radar-label-2,
+.radar-label-5 {
+  top: 43%;
+  width: calc(27.5% - 8px);
+  transform: translateY(-50%);
+}
+
+.radar-label-2 {
+  left: calc(72.5% + 8px);
+  text-align: left;
+}
+
+.radar-label-5 {
+  right: calc(72.5% + 8px);
+  text-align: right;
+}
+
+.radar-animate .radar-grid,
+.radar-animate .radar-area,
+.radar-animate .radar-points circle,
+.radar-animate .radar-label {
+  opacity: 0;
+}
+
+.radar-animate .radar-area {
+  transform-box: view-box;
+  transform-origin: 50% 53.3333%;
+  transform: scale(0.15);
+}
+
+.radar-animate.is-radar-visible .radar-grid {
+  animation: radar-fade-in 0.6s ease both;
+}
+
+.radar-animate.is-radar-visible .radar-area {
+  animation: radar-expand 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.12s both;
+}
+
+.radar-animate.is-radar-visible .radar-points circle {
+  animation: radar-fade-in 0.4s ease 0.7s both;
+}
+
+.radar-animate.is-radar-visible .radar-label {
+  animation: radar-fade-in 0.5s ease 0.45s both;
+}
+
+.radar-animate.is-radar-visible .radar-points circle:nth-child(2) { animation-delay: 0.76s; }
+.radar-animate.is-radar-visible .radar-points circle:nth-child(3) { animation-delay: 0.82s; }
+.radar-animate.is-radar-visible .radar-points circle:nth-child(4) { animation-delay: 0.88s; }
+.radar-animate.is-radar-visible .radar-points circle:nth-child(5) { animation-delay: 0.94s; }
+
+@keyframes radar-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes radar-expand {
+  from { opacity: 0; transform: scale(0.15); }
+  to { opacity: 1; transform: scale(1); }
+}
+
 .bar-chart {
   display: grid;
-  gap: 12px;
+  grid-template-rows: repeat(5, minmax(min-content, 1fr));
 }
 
 .bar-row {
   display: grid;
-  grid-template-columns: 110px 1fr 46px;
+  grid-template-columns: minmax(100px, 0.42fr) minmax(0, 1fr);
   gap: 12px;
   align-items: center;
   font-size: 14px;
-}
-
-.bar-row strong {
-  text-align: right;
-  color: var(--bar-label);
 }
 
 .bar-track {
@@ -1685,8 +1813,26 @@ body[data-theme="light"] .site-footer-score img {
     min-height: 0;
   }
 
+  .capability-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .bar-chart {
+    grid-template-rows: none;
+    gap: 12px;
+  }
+
+  .capability-radar {
+    max-width: 320px;
+  }
+
+  .radar-label {
+    font-size: 12px;
+  }
+
   .bar-row {
-    grid-template-columns: 84px 1fr 36px;
+    grid-template-columns: minmax(84px, 0.42fr) minmax(0, 1fr);
     gap: 9px;
     font-size: 13px;
   }
@@ -1751,6 +1897,18 @@ body[data-theme="light"] .site-footer-score img {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .radar-animate .radar-grid,
+  .radar-animate .radar-area,
+  .radar-animate .radar-points circle,
+  .radar-animate .radar-label {
+    animation: none !important;
+    opacity: 1;
+  }
+
+  .radar-animate .radar-area {
+    transform: none;
   }
 
   .site-footer-score {
