@@ -906,6 +906,100 @@ html[lang="en"] .hero-right {
 .timeline-item {
   position: relative;
   overflow: hidden;
+  isolation: isolate;
+}
+
+.timeline-item[data-company="baidu"] {
+  --company-logo: url("assets/logos/baidu-symbol.png");
+  --company-logo-width: 190px;
+  --company-logo-right: 60px;
+  --company-logo-mobile-width: 110px;
+}
+
+.timeline-item[data-company="moonshot"] {
+  --company-logo: url("assets/logos/kimi-wordmark.png");
+  --company-logo-width: 300px;
+}
+
+.timeline-item[data-company="zhipu"] {
+  --company-logo: url("assets/logos/zhipu-symbol.png");
+  --company-logo-width: 210px;
+  --company-logo-right: 60px;
+  --company-logo-mobile-width: 125px;
+}
+
+.timeline-item[data-company="baic"] {
+  --company-logo: url("assets/logos/baic.png");
+}
+
+/* Decorative local logos: independent of translated content and link targets. */
+.timeline-item[data-company]::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  right: var(--company-logo-right, 30px);
+  top: 50%;
+  width: var(--company-logo-width, clamp(180px, 28vw, 340px));
+  height: 180px;
+  transform: translateY(-50%);
+  background: var(--company-logo) center / contain no-repeat;
+  filter: brightness(0) invert(1);
+  opacity: 0.065;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+body[data-theme="light"] .timeline-item[data-company]::after {
+  filter: brightness(0);
+  opacity: 0.05;
+}
+
+/* Blend the supplied references' light backgrounds into the card without
+   changing the source artwork or flattening the negative space in each mark. */
+.timeline-item:is([data-company="baidu"], [data-company="moonshot"], [data-company="zhipu"])::after {
+  filter: grayscale(1) contrast(2) invert(1);
+  mix-blend-mode: screen;
+}
+
+body[data-theme="light"] .timeline-item:is([data-company="baidu"], [data-company="moonshot"], [data-company="zhipu"])::after {
+  filter: grayscale(1) contrast(2);
+  mix-blend-mode: multiply;
+}
+
+@media (max-width: 640px) {
+  .timeline-item[data-company]::after {
+    right: 16px;
+    top: auto;
+    bottom: 16px;
+    width: var(--company-logo-mobile-width, 180px);
+    height: 100px;
+    transform: none;
+    opacity: 0.045;
+  }
+
+  /* Offset the extra whitespace around the horizontal wordmarks so their
+     visible lower edges align with the standalone symbols. */
+  .timeline-item[data-company="moonshot"]::after {
+    transform: translateY(18px);
+  }
+
+  .timeline-item[data-company="baic"]::after {
+    transform: translateY(26px);
+  }
+
+  body[data-theme="light"] .timeline-item[data-company]::after {
+    opacity: 0.035;
+  }
+}
+
+@media (hover: hover) {
+  .timeline-item[data-company]:hover::after {
+    opacity: 0.18;
+  }
+
+  body[data-theme="light"] .timeline-item[data-company]:hover::after {
+    opacity: 0.13;
+  }
 }
 
 .timeline-item::before {
