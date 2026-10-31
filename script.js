@@ -18,6 +18,13 @@
   const musicBanner = document.querySelector('[data-music-banner]');
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  // Prevent linked images and selected link text from starting a native drag.
+  document.addEventListener('dragstart', (event) => {
+    if (event.target instanceof Element && event.target.closest('a[href]')) {
+      event.preventDefault();
+    }
+  });
+
   const metaRefs = {
     description: document.querySelector('meta[name="description"]'),
     keywords: document.querySelector('meta[name="keywords"]'),
@@ -56,7 +63,7 @@
         toggleTitle: '切换明暗主题'
       },
       language: {
-        switchToEnglish: '切换到英文版',
+        switchToEnglish: 'Switch to English',
         switchToChinese: '切换到中文版',
         buttonZh: '中',
         buttonEn: 'EN',
@@ -136,7 +143,7 @@
         dumate: {
           company: '【百度】百度在线网络技术(北京)有限公司',
           link: '访问 DuMate 官网',
-          meta: 'DuMate产品部 | Agent产品经理实习生 | 2026.06 - 至今',
+          meta: 'DuMate产品部 | Agent产品经理实习生 | 2026.06 - 2026.11',
           item1: '参与专家套件体系设计，将 Skill、MCP/Connector 与方法论封装为场景化工作流，结合用户日志筛选并推动自媒体、金融、设计等套件落地。',
           item2: '建立 Skill 静态/动态评估体系，制定 30+ 检查项及 Artifacts + Trace 评估方案，以评分报告支撑官方 Skill 审核、上架与版本治理。',
           item3: '针对用户上传 Skill 的权限与合规风险，设计“通过/提醒/拦截”分级规则，阻断风险内容进入用户环境。',
@@ -147,7 +154,7 @@
           company: '【Kimi AI】北京月之暗面科技有限公司',
           link: '访问 Kimi 开放平台官网',
           url: 'https://platform.kimi.com/',
-          meta: 'API Team | 产品实习生 | 2026.01 - 2026.04',
+          meta: 'API Team | 产品经理实习生 | 2026.01 - 2026.04',
           item1: '参与 Kimi 企业版产品设计，规划“数据不进训练、后端标识隔离”的核心合规逻辑，串联企业认证、批量下单、坐席分配及成员管理闭环。',
           item2: '搭建 Kimi 开放平台充值、账单、支付状态等核心模块埋点体系，定义关键事件并构建转化漏斗，定位支付前后流失节点并推动体验优化。',
           item3: '完成主流竞品商业化模式调研，分别设计 B 端渠道追踪与返点结算体系、C 端双向代金券裂变规则，推动平台月注册量环比增长约 35%。',
@@ -157,7 +164,7 @@
           company: '【智谱AI】北京智谱华章科技股份有限公司',
           link: '访问北京智谱华章科技股份有限公司官网',
           url: 'https://bigmodel.cn',
-          meta: 'MaaS 平台部 | 产品实习生 | 2025.06 - 2025.10',
+          meta: 'MaaS 平台部 | 产品经理实习生 | 2025.06 - 2025.10',
           item1: '参与 MCP 生态平台从 0 到 1 建设，明确“一站式调用、端内闭环”定位并推动规划排期。',
           item2: '主导 BigModel 多核心板块改版，推动资源包转化率从 3% 提升至 5.2%。',
           item3: '参与双品牌国际业务策略落地，支撑 Z.ai API 平台日活跃用户增长至 1w+。',
@@ -177,7 +184,7 @@
           company: '【北汽】北京汽车股份有限公司',
           link: '访问北京汽车股份有限公司官网',
           url: 'https://www.baicgroup.com.cn',
-          meta: '信息技术部 | 产品项目管理实习生 | 2024.07 - 2024.09',
+          meta: '信息技术部 | 产品项目实习生 | 2024.07 - 2024.09',
           item1: '主导工单系统优化需求分析，输出多方案对比并落地“服务台+多维表格”。',
           item2: '独立完成工单系统 0 到 1 搭建，推动试点上线后满意度达到 95%。',
           item3: '构建自动化数据看板与可视化指标体系，推动工单处理效率提升 30%。'
@@ -400,7 +407,7 @@
         dumate: {
           company: 'Baidu',
           link: 'Visit the DuMate website',
-          meta: 'DuMate Product Department | Agent Product Manager Intern | Jun 2026 - Present',
+          meta: 'DuMate Product Department | Agent Product Manager Intern | Jun 2026 - Nov 2026',
           item1: 'Helped design Expert Suites by packaging Skills, MCPs/Connectors, and methodologies into scenario-based workflows, using user logs to identify and launch creator-media, finance, and design suites.',
           item2: 'Built static and dynamic Skill evaluation systems with 30+ checks and an Artifacts + Trace framework, using score reports to support official Skill reviews, publishing, and version governance.',
           item3: 'Defined pass, warn, and block rules for user-uploaded Skills based on permission and compliance risks, preventing unsafe content from entering user environments.',
@@ -411,7 +418,7 @@
           company: 'Moonshot AI',
           link: 'Visit the Kimi Platform',
           url: 'https://platform.kimi.ai/',
-          meta: 'API Team | Product Intern | Jan 2026 - Apr 2026',
+          meta: 'API Team | Product Manager Intern | Jan 2026 - Apr 2026',
           item1: 'Contributed to the design of Kimi Business Edition, defining core compliance logic such as training exclusion and backend identity isolation while connecting enterprise verification, bulk ordering, seat allocation, and member management into one closed loop.',
           item2: 'Built the event tracking framework for recharge, billing, and payment-status flows on the Kimi Platform, mapped the funnel, identified drop-off points around payment, and drove experience improvements.',
           item3: 'Researched leading monetization models and proposed a B-side channel tracking and rebate settlement system plus a C-side bilateral coupon referral mechanism, helping monthly registrations grow by about 35% MoM.',
@@ -421,7 +428,7 @@
           company: 'Zhipu AI',
           link: 'Visit the Zhipu AI website',
           url: 'https://z.ai/model-api',
-          meta: 'MaaS Platform Department | Product Intern | Jun 2025 - Oct 2025',
+          meta: 'MaaS Platform Department | Product Manager Intern | Jun 2025 - Oct 2025',
           item1: 'Participated in building an MCP ecosystem platform from 0 to 1, clarifying the product position around one-stop access and in-app closed-loop usage while pushing roadmap planning.',
           item2: 'Led the revamp of multiple key modules in BigModel, increasing package purchase conversion from 3% to 5.2%.',
           item3: 'Supported the rollout of global strategy across two brands, helping the Z.ai API platform reach 10k+ daily active users.',
