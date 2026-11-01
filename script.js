@@ -100,7 +100,7 @@
         quote: '从 0 到 1 搭建产品，<br />用数据驱动持续迭代。',
         kpi1Label: '资源包购买转化',
         kpi2Label: '国际业务日活用户',
-        kpi3Label: '平台月注册量',
+        kpi3Label: '专家套件相关 Query 占比',
         scroll: '向下滚动'
       },
       about: {
@@ -207,8 +207,8 @@
           note: '9 月底突破万级'
         },
         metric4: {
-          label: '平台月注册量增长',
-          note: '裂变活动后环比增长 35%'
+          label: '专家套件使用增长',
+          note: '相关 Query 需求占比提升'
         },
         research: {
           title: '调研案例',
@@ -364,7 +364,7 @@
         quote: 'Build products from 0 to 1,<br />then iterate with data.',
         kpi1Label: 'Package Purchase Conversion',
         kpi2Label: 'Daily Active Users in Global Business',
-        kpi3Label: 'Monthly Registrations',
+        kpi3Label: 'Share of Expert Suite Queries',
         scroll: 'Scroll down'
       },
       about: {
@@ -471,8 +471,8 @@
           note: 'Passed 10k by late September'
         },
         metric4: {
-          label: 'Monthly Registration Growth',
-          note: 'Up 35% MoM after the referral campaign'
+          label: 'Expert Suite Usage Growth',
+          note: 'Increase in related query share'
         },
         research: {
           title: 'Research Cases',
@@ -914,6 +914,7 @@
   const animateCounter = (el) => {
     const target = Number(el.getAttribute('data-counter'));
     const decimals = Number(el.getAttribute('data-decimals') || 0);
+    const prefix = el.getAttribute('data-prefix') || '';
     const suffix = el.getAttribute('data-suffix') || '';
     const duration = 1150;
     const start = performance.now();
@@ -923,7 +924,7 @@
       const eased = 1 - Math.pow(1 - ratio, 3);
       const value = target * eased;
 
-      el.textContent = `${value.toLocaleString('en-US', {
+      el.textContent = `${prefix}${value.toLocaleString('en-US', {
         minimumFractionDigits: decimals,
         maximumFractionDigits: decimals
       })}${suffix}`;
